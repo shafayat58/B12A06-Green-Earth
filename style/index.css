@@ -1,3 +1,14 @@
 .inter-font{
   font-family: "Inter", sans-serif;
 }
+
+.plant-img {
+  width: 300px;
+ 
+  height: 300px;
+  
+  object-fit: cover;
+  
+  border-radius: 8px;
+  
+}
