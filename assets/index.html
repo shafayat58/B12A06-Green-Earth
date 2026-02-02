@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Earth</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Tailwind and Daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet">
+      <!-- CSS Link -->
+       <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+  <header>
+    <div class="navbar bg-base-100 shadow-sm bg-green-700 px-25">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </div>
+          
+        </div>
+        <a class=" btn-ghost text-2xl text-white font-bold ">Green Earth</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li class="text-white"><a>About</a></li>
+          <li>
+            
+              <summary class="text-white">Gallery</summary>
+              
+            
+          </li>
+          <li><a class="text-white">Plant a Tree</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <button class="btn rounded-full bg-[#FACC15] w-30 h-12">Plant a Tree</button>
+      </div>
+    </div>
+
+<!-- here Banner -->
+    <section class="banner flex justify-center items-center   bg-green-100 w-full max-h-full  ">
+      <div class="left-image">
+        <img src="./hero-leaf1.png" alt="">
+      </div>
+      <div class="mid-content my-10 p-2 ">
+        <h1 class="text-center text-4xl font bold">Plant a Tree, Grow a Future</h1>
+        <p class="text-center mx-8">Join our mission to plant 1 million trees and make the Earth greener for future
+        generations.</p>
+
+          <button class="btn font-thin f my-10 rounded-full bg-[#FACC15] w-30 h-12 mx-50 ">Get Involved</button>
+        
+      </div>
+      <div class="right-image">
+        <img src="./hero-leaf2.png" alt="">
+      </div>
+
+    </section>
+  </header>
+  
+
+
+
+
+  <script src="./script/index.js"></script>
+</body>
+</html>
