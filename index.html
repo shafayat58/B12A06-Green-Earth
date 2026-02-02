@@ -20,9 +20,12 @@
       <!-- CSS Link -->
        <link rel="stylesheet" href="./style/index.css">
 </head>
+
 <body>
   <header>
-    <div class="navbar bg-base-100 shadow-sm bg-green-700 px-25">
+
+    <!-here navbar-  -->
+    <div class="navbar px-0 lg:px-35 bg-green-600 shadow-sm">
       <div class="navbar-start">
         <div class="dropdown">
           <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -30,41 +33,62 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </div>
-          
+          <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li><a>Item 1</a></li>
+            <li>
+              <!-- <a>Parent</a> -->
+              <li><a>Parent</a></li>
+              <!-- <ul class="p-2">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
+              </ul> -->
+            </li>
+            <li><a>Item 3</a></li>
+          </ul>
         </div>
-        <a class=" btn-ghost text-2xl text-white font-bold ">Green Earth</a>
+        <a class="btn btn-ghost text-4xl text-white font-bold">Green Earth</a>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-          <li class="text-white"><a>About</a></li>
-          <li>
-            
-              <summary class="text-white">Gallery</summary>
-              
-            
-          </li>
-          <li><a class="text-white">Plant a Tree</a></li>
+          <li><a class="text-white font-bold">About</a></li>
+          <!-- <li> -->
+            <!-- <details>
+              <!-- <summary>Parent</summary> -->
+              <!-- <ul class="p-2 bg-base-100 w-40 z-1">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
+              </ul> -->
+            <!-- </details> --> 
+          <!-- </li> -->
+          <li><a class="text-white font-bold">Gallery</a></li>
+          <li><a class="text-white font-bold">Plant a Tree</a></li>
         </ul>
       </div>
       <div class="navbar-end">
-        <button class="btn rounded-full bg-[#FACC15] w-30 h-12">Plant a Tree</button>
+        <a class="btn btn-green rounded-full bg-[#FACC15] text-black px-6 py-3">Plant Tree</a>
       </div>
     </div>
 
-<!-- here Banner -->
-    <section class="banner flex justify-center items-center   bg-green-100 w-full max-h-full  ">
-      <div class="left-image">
-        <img src="./assets/hero-leaf1.png" alt="">
-      </div>
-      <div class="mid-content my-10 p-2 ">
-        <h1 class="text-center text-4xl font bold">Plant a Tree, Grow a Future</h1>
-        <p class="text-center mx-8">Join our mission to plant 1 million trees and make the Earth greener for future
-        generations.</p>
 
-          <button class="btn font-thin f my-10 rounded-full bg-[#FACC15] w-30 h-12 mx-50 ">Get Involved</button>
+
+
+
+
+
+<!-- here Banner -->
+    <section class="banner  flex justify-center items-center   w-full max-h-full  ">
+      <div class="left-image ">
+        <img src="./assets/hero-leaf1.png"  alt="" >
+      </div>
+      <div class="mid-content flex flex-col justify-center items-center my-10 p-2  ">
+        <h1 class="text-center text-1xl font-bold lg:text-4xl py-10 lg:py-0  ">Plant a Tree, Grow a Future</h1>
+        <p class=" " >Join our mission to plant 1 million trees and make the Earth greener for future
+        <br class="hidden lg:inline" >generations.</p>
+
+          <button class="btn font-thin  my-10 rounded-full bg-[#FACC15] w-30 h-12 ">Get Involved</button>
         
       </div>
-      <div class="right-image">
+      <div class="right-image ">
         <img src="./assets/hero-leaf2.png" alt=""> </div>
 
     </section>
