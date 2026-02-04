@@ -2,6 +2,7 @@
 
 const loadCatagory = () => {
   const url = 'https://openapi.programming-hero.com/api/categories'
+
   fetch(url)
     .then(res => res.json())
     .then(data => DisplayloadCatagory(data.categories)
@@ -9,13 +10,22 @@ const loadCatagory = () => {
 }
 
 const loadPlants = (id) => {
+
+  document.getElementById("card-container").classList.add("hidden")
+  document.getElementById("loading-spinner").classList.remove("hidden")
+
+
   const url = `https://openapi.programming-hero.com/api/category/${id}`
 
 
-  document.querySelectorAll(".btn-loadcatagory")
-    .forEach(btn => btn.classList.remove("Box"));
 
-  document.getElementById(`loadBtn-${id}`).classList.add("Box")
+  const allButton = document.querySelectorAll(".btn-loadcatagory")
+  allButton.forEach(btn=>btn.classList.remove("Box"))
+
+
+  const clickBtn = document.getElementById(`loadBtn-${id}`)
+  clickBtn.classList.add("Box")
+  
   
   
 
@@ -119,6 +129,9 @@ const DisplayloadPlants = (plants) => {
     `
     cardContainer.appendChild(div)
   })
+
+  document.getElementById("card-container").classList.remove("hidden")
+  document.getElementById("loading-spinner").classList.add("hidden")
 
   
 }
