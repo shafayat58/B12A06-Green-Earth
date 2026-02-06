@@ -1,5 +1,6 @@
 
 let cart = [];
+let total = 0;
 const loadCatagory = () => {
   const url = 'https://openapi.programming-hero.com/api/categories'
 
@@ -224,10 +225,23 @@ const addtoCart = (btn) => {
   };
 
 
-
   cart.push(selectAllItems)
+  total = total + 0;
+  Displaytotal(total)
   DisplayaddtoCart(cart);
+
+
+
+
+
+
 }
+
+Displaytotal = (val => {
+  const totalCard = document.getElementById("total-card")
+  total.innerText = val;
+
+})
 
 
 const DisplayaddtoCart = (carts) => {

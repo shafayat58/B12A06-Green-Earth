@@ -1,16 +1,16 @@
-.inter-font{
+.inter-font {
   font-family: "Inter", sans-serif;
 }
 
 .plant-img {
   width: 300px;
- 
+
   height: 300px;
-  
+
   object-fit: cover;
-  
+
   border-radius: 8px;
-  
+
 }
 
 /* .Box{
@@ -31,25 +31,21 @@
   background: skyblue;
   height: 60px;
   /* fixed height */
-  width: 220px;
-  /* fixed width */
-  display: flex;
-  /* align contents horizontally inside */
-  align-items: center;
-  /* vertical center */
-  justify-content: space-between;
-  padding: 0 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-  gap: 8px;
-  /* space between image, title, price */
-/* } */ */
+width: 220px;
+/* fixed width */
+display: flex;
+/* align contents horizontally inside */
+align-items: center;
+/* vertical center */
+justify-content: space-between;
+padding: 0 10px;
+box-sizing: border-box;
+overflow: hidden;
+gap: 8px;
 
-
-
-
-
-.Box {
+/* space between image, title, price */
+/* } */
+*/ .Box {
   border-radius: 8px;
   background: skyblue;
   height: 60px;
