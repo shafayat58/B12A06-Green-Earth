@@ -1,12 +1,12 @@
 
-
+let cart = [];
 const loadCatagory = () => {
   const url = 'https://openapi.programming-hero.com/api/categories'
 
   fetch(url)
     .then(res => res.json())
     .then(data => DisplayloadCatagory(data.categories)
-  )
+    )
 }
 
 const loadPlants = (id) => {
@@ -20,26 +20,26 @@ const loadPlants = (id) => {
 
 
   const allButton = document.querySelectorAll(".btn-loadcatagory")
-  allButton.forEach(btn=>btn.classList.remove("Box"))
+  allButton.forEach(btn => btn.classList.remove("Box"))
 
 
   const clickBtn = document.getElementById(`loadBtn-${id}`)
   clickBtn.classList.add("Box")
-  
-  
-  
+
+
+
 
   fetch(url)
     .then(res => res.json())
     .then(data => {
 
-      
+
 
 
       DisplayloadPlants(data.plants)
     }
-  )
-  
+    )
+
 }
 
 
@@ -49,9 +49,9 @@ const plantDetails = (id) => {
   fetch(url)
     .then(res => res.json())
     .then(data => DisplayplantDetails(data.plants)
-  )
-  
-  
+    )
+
+
 }
 
 
@@ -117,11 +117,11 @@ const DisplayloadPlants = (plants) => {
       <p>${plant.description}</p>
       <div class="flex justify-between items-center">
        <div class="rounded-full bg-[#DCFCE7]">${plant.category}</div>
-         <div class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>
+         <div class="font-bold card-price"><i class="fa-solid fa-bangladeshi-taka-sign "></i>
          ${plant.price}</div>
       </div>
 
-      <button class="btn btn-wide  font-bold rounded-full bg-[#15803D] text-white mx-auto  ">Add To Cart</button>
+      <button onclick="addtoCart(this)" class="btn btn-wide  font-bold rounded-full bg-[#15803D] text-white mx-auto">Add To Cart</button>
     </div>
 
    </div>
@@ -133,7 +133,7 @@ const DisplayloadPlants = (plants) => {
   document.getElementById("card-container").classList.remove("hidden")
   document.getElementById("loading-spinner").classList.add("hidden")
 
-  
+
 }
 
 
@@ -153,7 +153,7 @@ const DisplayloadCatagory = (categories) => {
 
 
 
-  
+
 }
 
 
@@ -168,16 +168,16 @@ const loadAllPlant = () => {
 
 
 
- const DisplayloadAllPlant = (plants) => {
-   const cardContainer = document.getElementById("card-container")
+const DisplayloadAllPlant = (plants) => {
+  const cardContainer = document.getElementById("card-container")
   cardContainer.innerHTML = "";
-  
 
-   plants.forEach(plant => {
-    
-     const div = document.createElement("div")
-     div.innerHTML =
-       `
+
+  plants.forEach(plant => {
+
+    const div = document.createElement("div")
+    div.innerHTML =
+      `
     <div class="card bg-base-100 w-96 shadow-sm ">
     <div class="card-body ">
       <figure>
@@ -187,24 +187,113 @@ const loadAllPlant = () => {
       <p>${plant.description}</p>
       <div class="flex justify-between items-center">
        <div class="rounded-full bg-[#DCFCE7]">${plant.category}</div>
-         <div class="font-bold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>
+         <div class="font-bold card-price"><i class="fa-solid fa-bangladeshi-taka-sign"></i>
          ${plant.price}</div>
       </div>
 
-      <button class="btn btn-wide  font-bold rounded-full bg-[#15803D] text-white mx-auto  ">Add To Cart</button>
+      <button onclick="addtoCart(this)" class="btn btn-wide  font-bold rounded-full bg-[#15803D] text-white mx-auto  ">Add To Cart</button>
     </div>
 
    </div>
     
     `
-     cardContainer.appendChild(div)
+    cardContainer.appendChild(div)
   })
-   
-    
- }
+
+
+}
 
 
 loadCatagory()
 loadAllPlant()
+
+
+const addtoCart = (btn) => {
+  const card = btn.parentNode.parentNode;
+  const cartTittle = card.querySelector(".card-title").innerText;
+
+
+
+  const cardPrice = card.querySelector(".card-price").innerText;
+  const cardPriceNumber = parseFloat(cardPrice.replace(/[^\d.]/g, ""));
+  console.log(cartTittle, cardPriceNumber);
+
+  const selectAllItems = {
+    title: cartTittle,
+    price: cardPriceNumber
+  };
+
+
+
+  cart.push(selectAllItems)
+  DisplayaddtoCart(cart);
+}
+
+
+const DisplayaddtoCart = (carts) => {
+  const cartContainer = document.getElementById("cart-container");
+  cartContainer.innerHTML = "";
+
+  let total = 0;
+
+  for (const cartItem of carts) {
+    total += cartItem.price;
+
+    const div = document.createElement("div");
+    div.className =
+      "Box p-3 my-2 relative w-64 bg-white rounded-lg shadow-md flex justify-between items-center";
+
+    div.innerHTML = `
+       
+      <div class="absolute top-5 -right-1 w-6 h-6 bg-red-100 flex items-center justify-center rounded-full cursor-pointer" onclick="removeCart(this)">
+        <i class="fa-solid fa-xmark text-red-600 text-sm"></i>
+      </div>
+
+      <div>
+        <p class="font-bold text-sm truncate cartTittle">${cartItem.title}</p>
+        <p class="font-bold text-sm text-green-700 flex items-center gap-1">
+          <i class="fa-solid fa-bangladeshi-taka-sign"></i>
+          ${cartItem.price}
+        </p>
+      </div>
+    `;
+
+    cartContainer.appendChild(div);
+  }
+
+  const totalDiv = document.createElement("div");
+  totalDiv.className =
+    "w-64 mt-4 flex justify-between font-bold border-t pt-2";
+
+  totalDiv.innerHTML = `
+    <span>Total:</span>
+    <span>৳ ${total}</span>
+  `;
+
+  cartContainer.appendChild(totalDiv);
+};
+
+
+
+
+const removeCart = (btn) => {
+  const item = btn.parentNode;
+  const cartTittle = item.querySelector(".cartTittle").innerText;
+
+
+  cart = cart.filter((lk) => lk.title !== cartTittle);
+
+
+  item.remove();
+
+
+  DisplayaddtoCart(cart);
+};
+
+
+
+
+
+
 
 

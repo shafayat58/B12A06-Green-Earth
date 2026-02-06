@@ -13,7 +13,9 @@
   
 }
 
-.Box{
+/* .Box{
+
+
   border-radius: 8px;
     background: skyblue;
     height: 60px;
@@ -21,4 +23,46 @@
     padding-top: 10px;
     padding-bottom: 16px;
    
+} */
+
+
+/* .Box {
+  border-radius: 8px;
+  background: skyblue;
+  height: 60px;
+  /* fixed height */
+  width: 220px;
+  /* fixed width */
+  display: flex;
+  /* align contents horizontally inside */
+  align-items: center;
+  /* vertical center */
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: 8px;
+  /* space between image, title, price */
+/* } */ */
+
+
+
+
+
+.Box {
+  border-radius: 8px;
+  background: skyblue;
+  height: 60px;
+  width: 220px;
+  /* or 100% for full container width */
+  position: relative;
+  /* needed for absolute icon */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* vertically center content */
+  align-items: center;
+  /* horizontally center content */
+  padding: 0 10px;
+  box-sizing: border-box;
 }
